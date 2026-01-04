@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
@@ -11,6 +11,18 @@ function App() {
   const [sidebarDark, setSidebarDark] = useState(true)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [sidebarOpen])
+
   const toggleSidebarDark = () => {
     setSidebarDark(!sidebarDark)
   }
@@ -21,7 +33,7 @@ function App() {
 
   return (
     <div className="flex min-h-screen bg-[#F4F5FA]">
-      {/* Overlay for mobile */}
+     
       {sidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -29,9 +41,9 @@ function App() {
         />
       )}
 
-      {/* Sidebar - hidden on mobile, shown on lg+ */}
+      
       <div className={`
-        fixed lg:static inset-y-0 left-0 z-50
+        fixed lg:static inset-y-0 left-0 z-50 overflow-y-auto
         transform transition-transform duration-300 ease-in-out
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         lg:translate-x-0
