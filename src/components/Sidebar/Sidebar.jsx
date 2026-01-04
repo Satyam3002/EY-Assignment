@@ -100,10 +100,12 @@ const Sidebar = ({ darkMode = false }) => {
   };
 
   const SectionTitle = ({ title }) => (
-    <div className="px-4 pt-6 pb-2">
-      <span className={`text-xs font-semibold uppercase tracking-wider ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+    <div className="flex items-center gap-3 px-4 pt-6 pb-2">
+      <span className={`w-4 h-px ${darkMode ? 'bg-gray-600' : 'bg-gray-300'}`}></span>
+      <span className={`text-xs font-medium uppercase tracking-wider whitespace-nowrap ${darkMode ? 'text-gray-300' : 'text-gray-400'}`}>
         {title}
       </span>
+      <span className={`flex-1 h-px ${darkMode ? 'bg-gray-600' : 'bg-gray-300'}`}></span>
     </div>
   );
 
@@ -237,7 +239,7 @@ const IconPlaceholder = ({ type, isActive, darkMode }) => {
       <img src={useWhiteIcon ? '/Reuse1.svg' : '/Reuse.svg'} alt="Components Icon" className="w-5 h-5" />
     ),
     form: (
-      <img src={useWhiteIcon ? '/Radio2.svg' : '/Radio.svg'} alt="Form Icon" className="w-5 h-5" />
+      <img src={useWhiteIcon ? '/Online1.svg' : '/Radio.svg'} alt="Form Icon" className="w-5 h-5" />
     ),
     layout: (
       <img src={useWhiteIcon ? '/Laptop1.svg' : '/Laptop.svg'} alt="Layout Icon" className="w-5 h-5" />
