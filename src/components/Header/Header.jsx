@@ -37,8 +37,8 @@ const Header = ({ darkMode = false, toggleDarkMode, toggleSidebar }) => {
 
         <div className="relative" ref={searchRef}>
           {searchOpen ? (
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 w-48 lg:w-72">
-              <img src='/Search.svg' alt="Search" className="w-5 h-5" />
+            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 w-40 sm:w-56 lg:w-72">
+              <img src='/Search.svg' alt="Search" className="w-5 h-5 flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -46,9 +46,9 @@ const Header = ({ darkMode = false, toggleDarkMode, toggleSidebar }) => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Escape' && setSearchOpen(false)}
                 placeholder="Search..."
-                className="flex-1 text-sm text-gray-700 placeholder-gray-400 outline-none bg-transparent"
+                className="flex-1 min-w-0 text-sm text-gray-700 placeholder-gray-400 outline-none bg-transparent"
               />
-              <button onClick={() => setSearchOpen(false)} className="text-gray-400 hover:text-gray-600">
+              <button onClick={() => setSearchOpen(false)} className="flex-shrink-0 text-gray-400 hover:text-gray-600">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
